@@ -26,3 +26,7 @@
 .singleUser{
   width: 300px;
 }
+
+nav{
+  height: calc(100vh-54px);
+}

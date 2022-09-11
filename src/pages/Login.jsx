@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import {useNavigate} from "react-router-dom"
 import { AuthContext } from '../context/AuthContext'
-// import { toastSuccessNotify, toastWarnNotify } from '../helpers/ToastNotify'
+import { toastSuccessNotify, toastWarnNotify } from '../helpers/ToastNotify'
 
 const Login = () => {
     const [email, setEmail] = useState("")
@@ -19,13 +19,12 @@ const Login = () => {
       if(emailControl.length>0){
         setCurrentUser(email)
         navigate("/home")
-        // setCurrentUser("")
-        // toastSuccessNotify('Logged in successfully')
+        toastSuccessNotify('Logged in successfully')
 
    
       }else{
-        alert("e-mail address not found")
-       // toastWarnNotify('Please type a valid email address')
+        // alert("e-mail address not found")
+       toastWarnNotify('e-mail address not found')
       }
     }
   return (

@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import {useNavigate} from "react-router-dom"
 import { AuthContext } from "../context/AuthContext";
+import { toastSuccessNotify, toastWarnNotify } from "../helpers/ToastNotify";
 // import { toastSuccessNotify, toastWarnNotify } from '../helpers/ToastNotify'
 
 const Register = () => {
@@ -33,9 +34,10 @@ const Register = () => {
     setAvatar('');
     setCurrentUser(email)
     navigate("/home")
-    // setCurrentUser("")
+    toastSuccessNotify('Registered in successfully')
   }else{
-    alert("this email address is already in use")
+    // alert("this email address is already in use")
+    toastWarnNotify('this email address is already in use')
   }};
 
   return (

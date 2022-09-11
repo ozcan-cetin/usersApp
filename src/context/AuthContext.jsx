@@ -56,6 +56,7 @@ const getUsers = async () => {
 
 // console.log(users)
 
+//todo PAGINATION SECTION **************************
 const [usersPerPage] =useState(6)
 const [currentPage, setCurrentPage] = useState(1)
 
@@ -64,6 +65,7 @@ const indexOfLastUser=currentPage * usersPerPage
 const indexOfFirstUser = indexOfLastUser - usersPerPage
 const currentUsers = users.slice(indexOfFirstUser,indexOfLastUser)
 const totalPages = Math.ceil(users.length/usersPerPage)
+//todo *****************************************************
   
 console.log(users.length);
   return (
