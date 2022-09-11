@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import {useNavigate} from "react-router-dom"
 import { AuthContext } from "../context/AuthContext";
 import { toastSuccessNotify, toastWarnNotify } from "../helpers/ToastNotify";
-// import { toastSuccessNotify, toastWarnNotify } from '../helpers/ToastNotify'
 
 const Register = () => {
   const [email, setEmail] = useState("");

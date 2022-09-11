@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import {useNavigate} from "react-router-dom"
 import { AuthContext } from '../context/AuthContext'
 import { toastSuccessNotify, toastWarnNotify } from '../helpers/ToastNotify'
@@ -8,7 +8,6 @@ const Login = () => {
     const [password, setPassword] = useState("")
 
     const{users, setUsers, currentUser, setCurrentUser}=useContext(AuthContext)
-
 
     const navigate = useNavigate()
 

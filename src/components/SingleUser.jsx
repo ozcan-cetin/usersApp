@@ -3,7 +3,7 @@ import React from "react";
 const SingleUser = ({ user }) => {
   const { avatar, email, first_name, last_name, id } = user;
   return (
-    <div className="my-3 text-center singleUser">
+    <div className="my-1 text-center singleUser">
       {" "}
       <div className="imgDiv mx-auto">
         <img src={avatar} alt={first_name} />

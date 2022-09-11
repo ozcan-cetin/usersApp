@@ -11,10 +11,8 @@ const AppRouter = () => {
       <Navbar/>
       <Routes>
         <Route path="/" element={<Login />} />
-        {/* <Route path="/about" element={<About />} /> */}
         <Route path="/home" element={<Home />} />
         <Route path="/register" element={<Register />} />
-        {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
     </BrowserRouter>
   );

@@ -3,6 +3,7 @@
 
 import React, { createContext, useEffect, useState } from "react";
 import axios from "axios"
+import { toastErrorNotify } from "../helpers/ToastNotify";
 
 export const AuthContext = createContext();
 
@@ -32,9 +33,8 @@ const getUsers = async () => {
       setIsLoading(false);
 
     } catch (error) {
-      console.log(error);
-    //   toastErrorNotify(error.message)
-      // toastErrorNotify(error.name)
+      // console.log(error);
+      toastErrorNotify(error.message)
       setIsLoading(false);
     }
   };
