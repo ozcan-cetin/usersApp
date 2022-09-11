@@ -1,17 +1,17 @@
-import React from 'react'
+import React from "react";
 
-const SingleUser = ({user}) => {
-    const {avatar, email, first_name,  last_name, id} = user
+const SingleUser = ({ user }) => {
+  const { avatar, email, first_name, last_name, id } = user;
   return (
-    <div>
-        <h3>{first_name}</h3>
-        <h3>{email}</h3>
-        <div>
-            <img src={avatar} alt={first_name} />
-        </div>
-
+    <div className="my-3 text-center singleUser">
+      {" "}
+      <div className="imgDiv mx-auto">
+        <img src={avatar} alt={first_name} />
+      </div>
+      <h5>{first_name} {last_name}</h5>
+      <p>{email}</p>
     </div>
-  )
-}
+  );
+};
 
-export default SingleUser
+export default SingleUser;

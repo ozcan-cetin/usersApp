@@ -7,11 +7,19 @@ import axios from "axios"
 export const AuthContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
+  const [currentUser, setCurrentUser] = useState("")
   const [isLoading, setIsLoading] = useState(false);
-  const [users, setUsers] = useState([]);
-  const [page, setPage] = useState(1)
 
-  const url = `https://reqres.in/api/users?page=${page}`
+  const [users, setUsers] = useState(
+    JSON.parse(localStorage.getItem('users')) || []
+  );
+
+  useEffect(() => {
+    localStorage.setItem('users', JSON.stringify(users))
+}, [users]);
+
+
+const url = `https://reqres.in/api/users?per_page=12`
   // const url = `https://reqres.in/api/users/`
 
 const getUsers = async () => {
@@ -19,6 +27,7 @@ const getUsers = async () => {
     try {
       const {data} = await axios.get(url);
       console.log(data);
+      console.log(data.total)
       setUsers(data.data);
       setIsLoading(false);
 
@@ -32,24 +41,33 @@ const getUsers = async () => {
 
   useEffect(() => {
  getUsers()
-  }, [page])
+  }, [])
 
 //! POST (Create)
-const addUser = async (userInfo) => {
-  try {
-    let mydata = await axios.post(url, userInfo);
-    console.log(mydata);
-  } catch (error) {
-    console.log(error);
-  }
-  getUsers();
-};
+// const addUser = async (userInfo) => {
+//   try {
+//     let mydata = await axios.post(url, userInfo);
+//     console.log(mydata);
+//   } catch (error) {
+//     console.log(error);
+//   }
+//   getUsers();
+// };
 
-console.log(users)
+// console.log(users)
+
+const [usersPerPage] =useState(6)
+const [currentPage, setCurrentPage] = useState(1)
+
+
+const indexOfLastUser=currentPage * usersPerPage
+const indexOfFirstUser = indexOfLastUser - usersPerPage
+const currentUsers = users.slice(indexOfFirstUser,indexOfLastUser)
+const totalPages = Math.ceil(users.length/usersPerPage)
   
-
+console.log(users.length);
   return (
-    <AuthContext.Provider value={{ users, addUser, page, setPage }}>
+    <AuthContext.Provider value={{ users, setUsers, currentUser, setCurrentUser, totalPages, setCurrentPage, currentUsers}}>
       {children}
     </AuthContext.Provider>
   );
