@@ -15,7 +15,7 @@ toastSuccessNotify('Logged out successfully')
   }
 console.log(currentUser)
   return (
-    <nav className="navbar bg-dark d-md-flex justify-content-end pe-2 mb-1">
+    <nav className="navbar bg-dark d-md-flex justify-content-end pe-2">
     {currentUser ? (
       <div className='container-fluid gap-3'>
       <p className='text-white m-0 text-capitalize'>{users.filter((user)=>user.email===currentUser)[0].first_name} {users.filter((user)=>user.email===currentUser)[0].last_name}</p>
