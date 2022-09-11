@@ -18,7 +18,7 @@ console.log(currentUser)
     <nav className="navbar bg-dark d-md-flex justify-content-end pe-2">
     {currentUser ? (
       <div className='container-fluid gap-3'>
-      <p className='text-white m-0 text-capitalize'>{users.filter((user)=>user.email===currentUser)[0].first_name} {users.filter((user)=>user.email===currentUser)[0].last_name}</p>
+      <h4 className='text-white m-0 text-capitalize'>{users.filter((user)=>user.email===currentUser)[0].first_name} {users.filter((user)=>user.email===currentUser)[0].last_name}</h4>
       <button className="btn btn-primary" onClick={handleLogout}>Logout</button>
       </div>
     ) : (
