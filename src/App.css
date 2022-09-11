@@ -6,6 +6,7 @@
 
 .container{
   margin: auto;
+  height: calc(100vh - 4rem);
 }
 
 .imgDiv{

@@ -7,7 +7,7 @@ const Home = () => {
 const {users, currentUsers}=useContext(AuthContext)
  
   return (
-    <div className='container'>
+    <div className='container d-flex flex-column justify-content-between'>
      <div className='d-flex flex-wrap justify-content-around'>{currentUsers?.map((user)=><SingleUser key={user.id} user={user}/>)}</div> 
     <div>
       <Paginate/>
